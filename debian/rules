@@ -30,6 +30,8 @@ configure_options += --with-sitearchdir="/usr/local/lib/$(DEB_HOST_MULTIARCH)/si
 configure_options += --enable-ipv6
 configure_options += --with-dbm-type=gdbm_compat
 
+configure_options += --with-jemalloc
+
 # hardening and other standard Debian build flags
 configure_options += $(shell dpkg-buildflags --export=configure)
 
