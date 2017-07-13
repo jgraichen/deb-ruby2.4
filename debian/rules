@@ -35,7 +35,16 @@ configure_options += --with-jemalloc
 # hardening and other standard Debian build flags
 configure_options += $(shell dpkg-buildflags --export=configure)
 
+# Always build with /bin/bash, to get consistent rbconfig.rb (which embeds SHELL).
+export SHELL := /bin/bash
+
 export DEB_LDFLAGS_MAINT_APPEND = -L$(CURDIR)/debian/lib
+
+export CC=clang
+export CXX=clang++
+export optflags = -Ofast -fno-fast-math -mtune=core-avx2 -fopenmp -D_GLIBCXX_PARALLEL
+export DEB_CFLAGS_MAINT_APPEND = ${optflags}
+export DEB_CXXFLAGS_MAINT_APPEND = ${optflags}
 
 %:
 	dh $@ --parallel --with autotools-dev --with autoreconf

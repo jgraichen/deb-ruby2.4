@@ -1,7 +1,9 @@
-ruby2.4 (2.4.1-1jemalloc~ppa1) xenial; urgency=medium
+ruby2.4 (2.4.1-2~jemalloc~xenial1) xenial; urgency=medium
 
   * New upstream release, 2.4.1
   * Enable jemalloc
+  * Use clang
+  * Tune with -Ofast and GLIB parallel mode
 
  -- Jan Graichen <jg@altimos.de>  Thu, 13 Jul 2017 16:40:15 +0200
 
